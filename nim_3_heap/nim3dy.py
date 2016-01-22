@@ -31,7 +31,6 @@ def Win(a,b,c):
                     for p in range(k+1):
                         if (i,j,p) in cache:
                             tmp.append(not cache[(i, j, p)])
-                    print (i,j,k), tmp
                     if True in tmp:
                         cache[(i,j,k)] = True
                     else:
