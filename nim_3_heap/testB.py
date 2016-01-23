@@ -15,3 +15,5 @@ for i in range(10000):
         print 'bad', (a,b,c)
     if i % 100 == 0:
         print i
+
+print 'Done'
