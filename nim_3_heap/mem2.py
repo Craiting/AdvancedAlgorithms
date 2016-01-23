@@ -11,16 +11,16 @@ def Win(a, b, c):
             return False
         for i in range(1,a+1):
             if not Win(a-i, b, c):
-                cache[(a-i,b,c)] = True
-                return cache[(a-i,b,c)]
+                cache[(a,b,c)] = True
+                return cache[(a,b,c)]
         for i in range(1,b+1):
             if not Win(a, b-i, c):
-                cache[(a, b-i, c)] = True
-                return cache[(a, b-i, c)]
+                cache[(a, b, c)] = True
+                return cache[(a, b, c)]
         for i in range(1,c+1):
             if not Win(a, b, c-i):
-                cache[(a, b, c-i)] = True
-                return cache[(a,b,c-i)]
+                cache[(a, b, c)] = True
+                return cache[(a,b,c)]
         cache[(a,b,c)] = False
         return cache[(a,b,c)]
 
