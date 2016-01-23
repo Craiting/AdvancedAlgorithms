@@ -18,9 +18,7 @@ def Win(a,b,c):
             for j in range(b+1):
                 for k in range(c+1):
                     tmp = []
-                    if (i,j,k) in cache:
-                        break
-                    if ((i>1)+(j>1)+(k>1)) <= 1 :
+                    if ((a>1)+(b>1)+(c>1)) == 1 :
                         cache[(i,j,k)] = True
                     for p in range(i+1):
                         if (p,j,k) in cache:
@@ -31,11 +29,13 @@ def Win(a,b,c):
                     for p in range(k+1):
                         if (i,j,p) in cache:
                             tmp.append(not cache[(i, j, p)])
-                    print (i,j,k), tmp
-                    if True in tmp:
-                        cache[(i,j,k)] = True
-                    else:
-                        cache[(i,j,k)] = False
+                    # print tmp, (i,j,k)
+                    if (i,j,k) not in cache:
+                        if True in tmp:
+                            cache[(i,j,k)] = True
+                        else:
+                            cache[(i,j,k)] = False
+        # print cache
         return cache[(a,b,c)]
 
 
