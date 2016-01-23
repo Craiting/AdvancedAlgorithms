@@ -1,5 +1,4 @@
 from random import randint
-from nim3recursive import RecursiveAlgorithm
 from nim3memo import MemoizeAlgorithm
 from nim3dy import DynamicAlgorithm
 
