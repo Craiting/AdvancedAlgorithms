@@ -1,0 +1,6 @@
+abandonned->abandoned
+aberation->aberration
+abilties->abilities
+abilty->ability
+abondon->abandon
+abbout->about
