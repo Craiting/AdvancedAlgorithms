@@ -13,3 +13,5 @@ class MED:
                        self.recursive(a, b, m-1, n), # Remove
                        self.recursive(a, b, m-1, n-1)) # Replace
 
+    def dynamic(self, a, b, m, n):
+        pass
