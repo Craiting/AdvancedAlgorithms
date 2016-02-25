@@ -18,5 +18,5 @@ class dna_align:
             return B*-2
         if B == 0:
             return A*-2
-        return max(self.rec_call(A-1,B)-2, self.rec_call(A,B-1)-2, self.rec_call(A-1, B-1) + self.match[(self.wordA[-1].lower(), self.wordB[-1].lower())])
+        return max(self.rec_call(A-1,B)-2, self.rec_call(A,B-1)-2, self.rec_call(A-1, B-1) + self.match[(self.wordA[A-1].lower(), self.wordB[B-1].lower())])
 
