@@ -54,12 +54,12 @@ def finalize(align1, align2):
         # if they are not identical and none of them is gap
         elif align1[i] != align2[i] and align1[i] != '-' and align2[i] != '-':
             score += match_score(align1[i], align2[i])
-            symbol += '_'
+            symbol += '-'
             found = 0
 
         #if one of them is a gap, output a space
         elif align1[i] == '-' or align2[i] == '-':
-            symbol += '_'
+            symbol += '-'
             score += gap_penalty
 
     identity = float(identity) / len(align1) * 100
@@ -80,16 +80,16 @@ def needle(seq1, seq2):
 
     # Calculate DP table
     for i in range(1, m + 1):
-        score[i][0] = score[i-1][0] + insert_delete[(seq2[i-1].lower())]
+        score[i][0] = score[i-1][0] + insert_delete[(seq1[i-1].lower())]
         # score[i][0] = gap_penalty * i
     for j in range(1, n + 1):
-        score[0][j] = score[0][j-1] + insert_delete[(seq1[j-1].lower())]
+        score[0][j] = score[0][j-1] + insert_delete[(seq2[j-1].lower())]
         # score[0][j] = gap_penalty * j
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             match = score[i - 1][j - 1] + substitute[(seq1[i-1], seq2[j-1])]
-            delete = score[i - 1][j] + insert_delete[(seq2[i-1].lower())]
-            insert = score[i][j - 1] + insert_delete[(seq1[j-1].lower())]
+            delete = score[i - 1][j] + insert_delete[(seq1[i-1].lower())]
+            insert = score[i][j - 1] + insert_delete[(seq2[j-1].lower())]
             score[i][j] = max(match, delete, insert)
             # match = score[i - 1][j - 1] + match_score(seq1[i-1], seq2[j-1])
             # delete = score[i - 1][j] + gap_penalty
@@ -116,14 +116,14 @@ def needle(seq1, seq2):
             j -= 1
         # elif score_current == score_left + gap_penalty:
         elif score_current == score_left + insert_delete[(seq1[i-1])]:
-            align1 += seq1[i-1]
-            align2 += '-'
-            i -= 1
-        # elif score_current == score_up + gap_penalty:
+                align1 += seq1[i-1]
+                align2 += '-'
+                i -= 1
+            # elif score_current == score_up + gap_penalty:
         elif score_current == score_up + insert_delete[(seq2[j-1])]:
-            align1 += '-'
-            align2 += seq2[j-1]
-            j -= 1
+                align1 += '-'
+                align2 += seq2[j-1]
+                j -= 1
 
     # Finish tracing up to the top left cell
     while i > 0:
