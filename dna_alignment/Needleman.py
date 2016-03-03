@@ -2,18 +2,6 @@
 #Python implementation to Smith-Waterman Algorithm for Homework 1 of Bioinformatics class.
 #Forrest Bao, Sept. 26 <http://fsbao.net> <forrest.bao aT gmail.com>
 
-# zeros() was origianlly from NumPy.
-# This version is implemented by alevchuk 2011-04-10
-def zeros(shape):
-    retval = []
-    for x in range(shape[0]):
-        retval.append([])
-        for y in range(shape[1]):
-            retval[-1].append(0)
-    return retval
-
-match_award      = 5
-mismatch_penalty = -5
 gap_penalty      = -5 # both for opening and extanding
 substitute = {
     ('c','t'):-3, ('g','t'):-1, ('a','t'):-3, ('t','c'):-3, ('t','g'):-1,

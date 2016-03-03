@@ -7,7 +7,6 @@ import copy
 import re
 import unittest
 """
-
 The factor limits dynamic programing's application often is not running time (O(nm))
 but the quardratic space requirement, where n and m are the length of two sequence.
 The Hirschberg algorithm reduces the space requirement from O(nm) to O(n) by involves
@@ -40,6 +39,8 @@ def lastLineAlign(x, y):
 
   for i in range(1, minLen + 1):
     prev[i] = prev[i-1] + insertion
+
+# matrix filled with zeros
 
   current[0] = 0
   for j in range(1, len(column) + 1):
