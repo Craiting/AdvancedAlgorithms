@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# credit to leebird for the algorithm
-# leebird's work has been heavily modified by me to fit the purpose of this assignment.
+# credit to leebird for the algorithm https://github.com/leebird/alignment
+# leebird's work has been modified by me to fit the purpose of this assignment.
 
 class Alignment(object):
 
