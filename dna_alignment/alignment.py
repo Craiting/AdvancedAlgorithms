@@ -24,22 +24,28 @@ class Alignment(object):
     def insert_delete(self, a):
         return self.score_ins_del[a] * len(a)
 
-    def score(self, aligned_seq_a, aligned_seq_b):
+    def score(self, aligned_seq_a, aligned_seq_b, output):
+        text_file = open(output, "w")
         score = 0
         for a, b in zip(aligned_seq_a, aligned_seq_b):
             if a == b:
-                print a, b, 5
+                text_file.write(a + ' ' + b + ' ' + str(5) + '\n')
+                # print a, b, 5
                 score += 5
             else:
                 if a == self.separator:
-                    print a, b, self.score_ins_del[b]
+                    text_file.write(a + ' ' + b + ' ' + str(self.score_ins_del[b]) + '\n')
+                    # print a, b, self.score_ins_del[b]
                     score += self.score_ins_del[b]
                 elif b == self.separator:
-                    print a, b, self.score_ins_del[a]
+                    text_file.write(a + ' ' + b + ' ' + str(self.score_ins_del[a]) + '\n')
+                    # print a, b, self.score_ins_del[a]
                     score += self.score_ins_del[a]
                 else:
-                    print a, b, self.match(a,b)
+                    text_file.write(a + ' ' + b + ' ' + str(self.match(a,b)) + '\n')
+                    # print a, b, self.match(a,b)
                     score += self.match(a,b)
+        text_file.write('Final Score: '+ str(score))
         return score
 
 
