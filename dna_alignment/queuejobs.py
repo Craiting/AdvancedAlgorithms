@@ -1,10 +1,10 @@
 import os
 
 # human vs neandertal
-pair = open('/home/A01055143/AdvancedAlgorithms/dna_alignment/pair.py', 'w')
-pair.write("from compare import compare\ncompare('/human_neandertal/%s','/human_neandertal/%s','%s')" % ('homosapian.txt','Neandertal.txt', 'human_neandertal'))
-pair.close()
-os.system('sbatch compare.sh')
+# pair = open('/home/A01055143/AdvancedAlgorithms/dna_alignment/pair.py', 'w')
+# pair.write("from compare import compare\ncompare('/human_neandertal/%s','/human_neandertal/%s','%s')" % ('homosapian.txt','Neandertal.txt', 'human_neandertal'))
+# pair.close()
+# os.system('sbatch compare.sh')
 
 
 # pairwise
