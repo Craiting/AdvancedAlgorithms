@@ -16,11 +16,11 @@ for entry in tuples:
         tuples.remove((entry[1],entry[0]))
 for t in tuples[:5]:
     pair = open('/home/A01055143/AdvancedAlgorithms/dna_alignment/pair.py', 'w')
-    pair.write("\nprint '%s', '%s'\n" % t[0], t[1])
+    pair.write("\nprint '%s', '%s'\n" % (t[0], t[1]))
     pair.write("from compare import compare\ncompare('/diversity/%s','/diversity/%s','%s')" % (t[0],t[1], t[0][:4]+'_'+t[1][:4]))
     pair.close()
     time.sleep(1)
-    os.system('sbatch compare.sh')
+    # os.system('sbatch compare.sh')
 
 # human vs apes
 # ape_list = os.listdir('/home/A01055143/AdvancedAlgorithms/dna_alignment/great_apes')
