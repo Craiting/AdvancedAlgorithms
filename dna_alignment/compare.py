@@ -3,8 +3,8 @@ from alignment import Hirschberg
 import thread
 
 def compare(filea, fileb, outputfile):
-    human = open(filea)
-    neandertal = open(fileb)
+    human = open('/home/A01055143/dna_project/dna_alignment'+filea)
+    neandertal = open('/home/A01055143/dna_project/dna_alignment'+fileb)
 
     h = human.readlines()
     hum = ''.join(h).replace('\n','').lower()
@@ -15,12 +15,6 @@ def compare(filea, fileb, outputfile):
     hirsch = Hirschberg()
 
     a,b = hirsch.align(hum, nea)
-    final = hirsch.score(a,b, 'results/'+outputfile)
+    final = hirsch.score(a,b, '/home/A01055143/dna_project/dna_alignment/results/'+outputfile)
     # print 'final score: ', final
     print 'finished %s and %s' % (filea, fileb)
-
-try:
-   thread.start_new_thread( compare, ('human_neandertal/homosapian.txt', 'human_neandertal/Neandertal.txt','humanVneandertal.txt', ) )
-   thread.start_new_thread( compare, ('diversity/aborigine.txt', 'diversity/algeria.txt','aborigineValgeria.txt', ) )
-except:
-   print "Error: unable to start thread"
