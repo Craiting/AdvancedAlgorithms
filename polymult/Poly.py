@@ -18,11 +18,17 @@ class PolyMult:
         ph = p[mid:]
         ql = q[:mid]
         qh = q[mid:]
-        sol3 = divide_conquer(sum(pl,ph),sum(ql,qh)) # make add polynomial function
-        sol1 = divide_conquer(pl,ql)
-        sol2 = divide_conquer(ph,qh)
-        midsol = sol3 - sol1 - sol2 # make subtract polynomial function
-        return sol1 + midsol + sol2
+        sol3 = self.divide_conquer(self.add_poly(pl,ph),self.add_poly(ql,qh))
+        sol1 = self.divide_conquer(pl,ql)
+        sol2 = self.divide_conquer(ph,qh)
+        midsol = self.sub_poly(self.sub_poly(sol3, sol1), sol2)
+        midsol.reverse()
+        midsol += [0 for x in range(len(p)/2)]
+        midsol.reverse()
+        sol2.reverse()
+        sol2 += [0 for x in range(len(p))]
+        sol2.reverse()
+        return self.add_poly(self.add_poly(sol1 ,midsol), sol2)
 
     def add_poly(self, a, b):
         if len(a) <= len(b):
