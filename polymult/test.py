@@ -8,8 +8,8 @@ s = p.simple([1,2,3],[3,2,1])
 h = p.div_and_conc([1,2,3],[3,2,1])
 print s
 print h
-s = p.simple([1,2,3,4],[3,2])
-h = p.div_and_conc([1,2,3,4],[3,2])
+s = p.simple([-.12,.53,.24,-.77],[.99,.43])
+h = p.div_and_conc([-.12,.53,.24,-.77],[.99,.43])
 print s
 print h
 s = p.simple([1,5,6],[3,2,1,2,5,7])

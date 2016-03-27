@@ -6,10 +6,10 @@ class PolyMult:
         out = [0 for x in range(len(a)+len(b)-1)]
         for i in range(len(a)):
             for j in range(len(b)):
-                out[i+j] = out[i+j] + a[i] * b[j]
+                out[i+j] = float(out[i+j]) + float(a[i]) * float(b[j])
         return out
 
-    def div_and_conc(self, p, q):
+    def div_and_conc(self, p, q): # wrapper to account for poly size difference
         if len(p) > len(q):
             q += [0 for x in range(len(p)-len(q))]
         elif len(q) > len(p):
@@ -23,7 +23,7 @@ class PolyMult:
 
     def divide_conquer(self, p, q):
         if len(p) == len(q) == 1:
-            return [p[0]*q[0]]
+            return [float(p[0]*q[0])]
 
         mid = len(p)/2
         pl = p[:mid]
@@ -35,10 +35,10 @@ class PolyMult:
         sol3 = self.divide_conquer(self.add_poly(list(pl),list(ph)),self.add_poly(list(ql),list(qh)))
         midsol = self.sub_poly(self.sub_poly(list(sol3), list(sol1)), list(sol2))
         midsol.reverse()
-        midsol += [0 for x in range(len(p)/2)]
+        midsol += [0.0 for x in range(len(p)/2)]
         midsol.reverse()
         sol2.reverse()
-        sol2 += [0 for x in range(2*mid)]
+        sol2 += [0.0 for x in range(2*mid)]
         sol2.reverse()
         return self.add_poly(self.add_poly(sol1 ,midsol), sol2)
 
