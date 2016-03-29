@@ -18,3 +18,6 @@ found that to be slower. If you do run that file, the output goes to out.txt.
 If the graph in the report doesn't do it for you, you can generate it yourself
 by installing matplotlib ```sudo apt-get install python-matplotlib``` and running
 ```python graph.py```.
+
+#### What are these .sh files?
+They are just bash scripts I used to run my programs on USU's supercomputers.
