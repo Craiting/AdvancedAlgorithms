@@ -1,7 +1,7 @@
 # sudo apt-get install python-matplotlib
 import matplotlib.pyplot as plt
 
-x = [] # n
+x = [32,64,128,256,512,1024,2048,4096,8192] # n
 simple_y = []
 divide_y = []
 

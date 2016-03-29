@@ -1,5 +1,6 @@
 import random
 import time
+import numpy
 
 from Poly import PolyMult as Poly
 
@@ -27,7 +28,7 @@ while n < 524288:
             div.append(time.time() - start)
         out = open('outdiv.txt','a')
         out.write('\n\nn = %s' % str(n))
-        out.write('\ndivide = %f, %f, %f, %f, %f' % (div[0],div[1],div[2],div[3],div[4]))
+        out.write('\ndivide = %s' % (numpy.mean(div)))
         out.close()
     except Exception as e:
         print 'Error', e

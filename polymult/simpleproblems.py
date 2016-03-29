@@ -1,5 +1,6 @@
 import random
 import time
+import numpy
 
 from Poly import PolyMult as Poly
 
@@ -27,7 +28,7 @@ while n < 80000:
             simp.append(time.time() - start)
         out = open('outsimp.txt','a')
         out.write('\n\nn = %s' % str(n))
-        out.write('\nsimple = %f, %f, %f, %f, %f' % (simp[0],simp[1],simp[2],simp[3],simp[4]))
+        out.write('\nsimple = %s' % (str(numpy.mean(simp))))
         out.close()
     except Exception as e:
         print 'Error', e
