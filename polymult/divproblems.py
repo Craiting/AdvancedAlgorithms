@@ -11,6 +11,8 @@ def generate_random_poly(size):
         q[i] = random.uniform(-1.0,1.0)
     return (p,q)
 
+out = open('outdiv.txt','w')
+out.close()
 poly = Poly()
 n = 32
 while n < 524288:
@@ -19,17 +21,12 @@ while n < 524288:
         div = []
         for i in range(5):
             p,q = generate_random_poly(n)
-            # First time the simple algorithm
-            start = time.time()
-            ans = poly.simple(p,q)
-            simp.append(time.time() - start)
-            # Secondly time the divide and conquer algorithm
+            # time the divide and conquer algorithm
             start = time.time()
             ans = poly.div_and_conc(p,q)
             div.append(time.time() - start)
-        out = open('out.txt','a')
+        out = open('outdiv.txt','a')
         out.write('\n\nn = %s' % str(n))
-        out.write('\nsimple = %f, %f, %f, %f, %f' % (simp[0],simp[1],simp[2],simp[3],simp[4]))
         out.write('\ndivide = %f, %f, %f, %f, %f' % (div[0],div[1],div[2],div[3],div[4]))
         out.close()
     except Exception as e:
