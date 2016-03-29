@@ -11,6 +11,8 @@ def generate_random_poly(size):
         q[i] = random.uniform(-1.0,1.0)
     return (p,q)
 
+out = open('out.txt','w')
+out.close()
 poly = Poly()
 n = 32
 while n < 524288:
