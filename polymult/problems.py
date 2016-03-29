@@ -19,7 +19,7 @@ while n < 524288:
     try:
         simp = []
         div = []
-        for i in range(5):
+        for i in range(5): # timing the same problem set 5 times then taking the average.
             p,q = generate_random_poly(n)
             # First time the simple algorithm
             start = time.time()
