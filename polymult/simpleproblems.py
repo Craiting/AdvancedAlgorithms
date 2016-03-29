@@ -15,7 +15,7 @@ out = open('outsimp.txt','w')
 out.close()
 poly = Poly()
 n = 32
-while n < 200:
+while n < 20000:
     try:
         simp = []
         div = []
