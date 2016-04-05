@@ -1,6 +1,40 @@
-
+import cmath
 
 class PolyMult:
+
+    def fft(self, P):
+        n = len(P)
+        if n == 1:
+            return P
+        else:
+            if n%2 > 0:
+                n+=1
+                P += [0]
+            Peven = self.fft([P[i] for i in xrange(0, n, 2)])
+            Podd = self.fft([P[i] for i in xrange(1, n, 2)])
+            combined = [0] * n
+            for m in xrange(n/2):
+                combined[m] = Peven[m] + self.omega(n, -m) * Podd[m]
+                combined[m+n/2] = Peven[m] - self.omega(n, -m) * Podd[m]
+            return combined
+        # Podd = [0j for x in range(n/2)]
+        # Peven = [0j for x in range(n/2)]
+        # for i in range((n/2)-1):
+        #     Peven[i] = P[2*i]
+        #     Podd[i] = P[2*i+1]
+        # soleven = FFT(Peven, ,n/2)
+        # solodd = FFT(Podd, ,n/2)
+        # sol = [0j for x in range(n/2)]
+        # for j in range((n/2)-1):
+        #     sol[j] =
+
+    def omega(self, p, q):
+        return cmath.exp((2.0* cmath.pi * 1j * q) / p)
+
+    def ifft(self, P):
+        timesig = self.fft([x.conjugate() for x in P])
+        return [x.conjugate()/len(P) for x in timesig]
+
 
     def simple(self,a, b):
         out = [0 for x in range(len(a)+len(b)-1)]

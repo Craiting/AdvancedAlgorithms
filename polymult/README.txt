@@ -21,3 +21,6 @@ by installing matplotlib ```sudo apt-get install python-matplotlib``` and runnin
 
 #### What are these .sh files?
 They are just bash scripts I used to run my programs on USU's supercomputers.
+
+#### Credit
+Credit to Jeremy Kun for the clever implementation of the Fast Fourier transform algorithm.
