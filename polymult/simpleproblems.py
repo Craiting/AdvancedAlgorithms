@@ -20,7 +20,7 @@ while n < 80000:
     try:
         simp = []
         div = []
-        for i in range(5):
+        for i in range(2):
             p,q = generate_random_poly(n)
             # First time the simple algorithm
             start = time.time()
@@ -30,6 +30,9 @@ while n < 80000:
         out.write('\n\nn = %s' % str(n))
         out.write('\nsimple = %s' % (str(numpy.mean(simp))))
         out.close()
+        if simp[-1] > 600:
+            print 'finished'
+            exit(0)
     except Exception as e:
         print 'Error', e
         break

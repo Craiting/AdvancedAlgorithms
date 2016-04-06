@@ -16,11 +16,11 @@ out = open('outdiv.txt','w')
 out.close()
 poly = Poly()
 n = 32
-while n < 524288:
+while n < 1524288:
     try:
         simp = []
         div = []
-        for i in range(5):
+        for i in range(2):
             p,q = generate_random_poly(n)
             # time the divide and conquer algorithm
             start = time.time()
@@ -30,6 +30,9 @@ while n < 524288:
         out.write('\n\nn = %s' % str(n))
         out.write('\ndivide = %s' % (numpy.mean(div)))
         out.close()
+        if simp[-1] > 600:
+            print 'finished'
+            exit(0)
     except Exception as e:
         print 'Error', e
         break
