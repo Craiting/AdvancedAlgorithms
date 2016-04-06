@@ -19,7 +19,6 @@ n = 32
 while n < 80000:
     try:
         simp = []
-        div = []
         for i in range(2):
             p,q = generate_random_poly(n)
             # First time the simple algorithm
