@@ -2,6 +2,18 @@ import cmath
 
 class PolyMult:
 
+    def fft_mult(self, P, Q):
+        a = self.fft(P + [0]*len(P))
+        b = self.fft(Q + [0]*len(Q))
+        res = [0] * len(a)
+        for i in range(len(a)):
+            res[i] = a[i] * b[i]
+        ans = self.ifft(res)
+        c = [round(x.real, 5) for x in ans]
+        while not c[-1]:
+            c.pop()
+        return c
+
     def fft(self, P):
         n = len(P)
         if n == 1:
@@ -17,16 +29,6 @@ class PolyMult:
                 combined[m] = Peven[m] + self.omega(n, -m) * Podd[m]
                 combined[m+n/2] = Peven[m] - self.omega(n, -m) * Podd[m]
             return combined
-        # Podd = [0j for x in range(n/2)]
-        # Peven = [0j for x in range(n/2)]
-        # for i in range((n/2)-1):
-        #     Peven[i] = P[2*i]
-        #     Podd[i] = P[2*i+1]
-        # soleven = FFT(Peven, ,n/2)
-        # solodd = FFT(Podd, ,n/2)
-        # sol = [0j for x in range(n/2)]
-        # for j in range((n/2)-1):
-        #     sol[j] =
 
     def omega(self, p, q):
         return cmath.exp((2.0* cmath.pi * 1j * q) / p)
