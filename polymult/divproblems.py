@@ -18,7 +18,7 @@ poly = Poly()
 n = 32
 while n < 1524288:
     try:
-        simp = []
+        div = []
         for i in range(2):
             p,q = generate_random_poly(n)
             # time the divide and conquer algorithm
