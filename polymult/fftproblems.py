@@ -16,7 +16,7 @@ out = open('outfft.txt','w')
 out.close()
 poly = Poly()
 n = 32
-while n < 1524288:
+while n < 91524288:
     try:
         div = []
         for i in range(2):
