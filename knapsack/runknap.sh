@@ -4,4 +4,4 @@
 #SBATCH --time 2-00:00:00
 #SBATCH --job-name knapsack
 
-python /home/A01055143/AdvancedAlgorithms/dna_alignment/knapsack.py
+python /home/A01055143/AdvancedAlgorithms/knapsack/knapsack.py
