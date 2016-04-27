@@ -5,14 +5,14 @@ MILLI = 1000
 
 cache = {}
 def knap(objs, sac):
-    if (len(objs),sac) in cache:
+    if (len(objs),sac) in cache and len(objs) != 22:
         return cache[(len(objs),sac)]
     if sac < 0:
         return 99999999999999999999l
     if len(objs) == 0:
         return sac
     cache[(len(objs),sac)] = min(knap(objs[1:], sac-objs[0]), # Do use
-               knap(objs[1:], sac))       # Dont use
+                                 knap(objs[1:], sac))       # Dont use
     return cache[(len(objs),sac)]
 
 def create_point(m):
@@ -37,7 +37,7 @@ for j in range(30):
 f = open('results2.txt', 'w')
 real_answer = float(numpy.mean([x[1] for x in points[12]]))
 for key in points:
-    f = open('results.txt','a')
+    f = open('results2.txt','a')
     f.write('m = %d\n' % key)
     for point in points[key]:
         f.write('(%f, %f)\n' % (point[0],abs(real_answer - point[1])))
