@@ -1,5 +1,6 @@
 import random
 import time
+import numpy
 MILLI = 1000
 
 cache = {}
@@ -25,14 +26,23 @@ def create_point(m):
     return (totaltime_ms, float(sol)/(10**m))
 
 points = {12:[],11:[],10:[],9:[],8:[],7:[],6:[],5:[],4:[],3:[]}
-p = create_point(12)
-print p
-#for j in range(30):
- #   for i in range(3,13)[::-1]:
-  #      p = create_point(i)
-   #     points[i].append(p)
-   # print j
+# p = create_point(12)
+# print p
+for j in range(30):
+   for i in range(3,13)[::-1]:
+       p = create_point(i)
+       points[i].append(p)
+   print j
 
-#f = open('results.txt', 'w')
-#f.write(str(points))
-#print points
+f = open('results2.txt', 'w')
+real_answer = float(numpy.mean([x[1] for x in points[12]]))
+for key in points:
+    f = open('results.txt','a')
+    f.write('m = %d\n' % key)
+    for point in points[key]:
+        f.write('(%f, %f)\n' % (point[0],abs(real_answer - point[1])))
+    # avg_time = float(numpy.mean([x[0] for x in points[key]]))
+    # avg_num = float(numpy.mean([x[1] for x in points[key]]))
+    # error = abs(real_answer - avg_num)
+    # f.write("m = %d (%f, %f)\n" % (key, avg_time, error))
+    f.close()
