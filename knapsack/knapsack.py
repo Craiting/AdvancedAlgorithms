@@ -16,6 +16,7 @@ def knap(objs, sac):
     return cache[(len(objs),sac)]
 
 def create_point(m):
+    print m
     n = 22
     k = 11.0000
     objects = [int(float(str(random.uniform(0,1.0))[:m])*10**m) for x in range(n)]
@@ -34,10 +35,10 @@ for j in range(30):
        points[i].append(p)
    print j
 
-f = open('results2.txt', 'w')
+f = open('results3.txt', 'w')
 real_answer = float(numpy.mean([x[1] for x in points[12]]))
 for key in points:
-    f = open('results2.txt','a')
+    f = open('results3.txt','a')
     f.write('m = %d\n' % key)
     for point in points[key]:
         f.write('(%f, %f)\n' % (point[0],abs(real_answer - point[1])))
