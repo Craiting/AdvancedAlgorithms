@@ -24,7 +24,7 @@ def create_point(m):
     start = time.clock()
     sol = knapsack(objects, k*10**m)
     stop = time.clock()
-    totaltime_ms = (stop - start) * MILLI
+    totaltime_ms = (stop - start)
     return (totaltime_ms, float(sol)/(10**m))
 
 print 'it begins'
@@ -37,10 +37,10 @@ for j in range(30):
         points[i].append(p)
     # print j
 
-f = open('res.txt', 'w')
+f = open('final_results.txt', 'w')
 real_answer = float(numpy.mean([x[1] for x in points[12]]))
 for key in points:
-    f = open('res.txt','a')
+    f = open('final_results.txt','a')
     f.write('m = %d\n' % key)
     for point in points[key]:
         f.write('(%f, %f)\n' % (point[0],abs(real_answer - point[1])))
