@@ -23,6 +23,12 @@ def create_point(m):
     objects = [int(float(str(random.uniform(0,1.0))[:m])*10**m) for x in range(n)]
     start = time.clock()
     sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
+    sol = knapsack(objects, k*10**m)
     stop = time.clock()
     totaltime_ms = (stop - start)
     return (totaltime_ms, float(sol)/(10**m))
